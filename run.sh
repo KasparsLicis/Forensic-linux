@@ -31,7 +31,7 @@ abnormal_file="$base_dir/NOUSER_NOGROUP_info.txt"
 
 # Save the command history, if existed
 echo "[COMMAND HISTORY LIST]" >> $history_file 
-export HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT='%F %T ' >> $history_file 
 history -w
 history >> $history_file
 
@@ -250,7 +250,7 @@ lsmod >> $install_file_info.txt
 echo -e "\n" >> $install_file_info.txt
 
 # File tiimeline
-find / -type f -printf "%P,%A+,%T+,%C+,%u,%g,%M,%s\n" >> $timeline_file
+#find / -type f -printf "%P,%A+,%T+,%C+,%u,%g,%M,%s\n" >> $timeline_file
 
 
 # Package files
