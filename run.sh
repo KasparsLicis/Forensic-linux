@@ -117,14 +117,14 @@ echo -e "\n" >> $system_file
 
 #last information
 echo "[CURRENT USER LAST LOGIN]" >> $system_file
-whoami >> $user_file
+whoami >> $system_file
 echo -e "\n" >> $system_file
-last >> $user_file
+last >> $system_file
 echo -e "\n" >> $system_file
 
 #lastlog information
 echo "[USERS LAST LOGIN]" >> $system_file
-lastlog >> $user_file
+lastlog >> $system_file
 echo -e "\n" >> $system_file
 
 # privilege information
