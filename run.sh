@@ -210,7 +210,7 @@ find / -name 'nginx' >> $http_file
 echo -e "\n" >> $http_file
 # tar default directory
 if [ -e "/usr/local/nginx" ] ; then
-    tar -zc -f HTTP_SERVER_DIR_nginx.tar.gz /usr/local/nginx 2>/dev/null
+    tar -zc -f $base_dir/HTTP_SERVER_DIR_nginx.tar.gz /usr/local/nginx 2>/dev/null
 fi
 
 # Apache2 collection
@@ -219,7 +219,7 @@ find / -name 'apache2' >> $http_file
 echo -e "\n" >> $http_file
 # tar default directory
 if [ -e "/etc/apache2" ] ; then
-    tar -zc -f HTTP_SERVER_DIR_apache.tar.gz /etc/apache2 2>/dev/null
+    tar -zc -f $base_dir/HTTP_SERVER_DIR_apache.tar.gz /etc/apache2 2>/dev/null
 fi
 
 
@@ -245,9 +245,9 @@ find / -nogroup >> $abnormal_file
 echo -e "\n" >> $abnormal_file
 
 # Install files
-echo "[lsmod]" >> $install_file_info.txt
-lsmod >> $install_file_info.txt
-echo -e "\n" >> $install_file_info.txt
+echo "[lsmod]" >> $install_file_info
+lsmod >> $install_file_info
+echo -e "\n" >> $install_file_info
 
 # File tiimeline
 #find / -type f -printf "%P,%A+,%T+,%C+,%u,%g,%M,%s\n" >> $timeline_file
