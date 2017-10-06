@@ -138,7 +138,8 @@ lsof -w /dev/null >> $null_file
 
 #  Fetch crontab records
 crontab -l >> $crontab_file 2>/dev/null
-
+# check all users crontab
+for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l >> $crontab_file; done
 
 # Fetch process information
 
