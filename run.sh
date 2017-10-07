@@ -99,6 +99,9 @@ echo -e "\n" >> $system_file
 echo "[SYSTEM TIME]" >> $system_file
 date >> $system_file
 echo -e "\n" >> $system_file
+echo "[UPTIME]" >> $system_file
+uptime >> $system_file
+echo -e "\n" >> $system_file
 
 # system information
 echo "[KERNEL INFO]" >> $system_file
@@ -125,6 +128,18 @@ echo -e "\n" >> $system_file
 #lastlog information
 echo "[USERS LAST LOGIN]" >> $system_file
 lastlog >> $system_file
+echo -e "\n" >> $system_file
+
+# privilege information
+echo "[SUDO USERS]" >> $system_file
+cat /etc/sudoers >> $system_file
+echo -e "\n" >> $system_file
+
+# disk information
+echo "[DISK information]" >> $system_file
+df -h >> $system_file
+echo -e "\n" >> $system_file
+vmstat -d >> $system_file
 echo -e "\n" >> $system_file
 
 # privilege information
