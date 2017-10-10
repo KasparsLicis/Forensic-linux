@@ -149,9 +149,8 @@ lsof -w /dev/null >> $null_file
 
 
 #  Fetch crontab records
-crontab -l >> $crontab_file
-# check all users crontab
-for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l >> $crontab_file; done
+# check all users crontabs and remove if they are empty
+for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l >> $base_dir/${user}_crontab_file.txt; if [[ -s $base_dir/${user}_crontab_file.txt ]] ; then echo $base_dir/${user}_crontab_file.txt; else rm -f $base_dir/${user}_crontab_file.txt ; fi; done
 
 # Fetch process information
 
