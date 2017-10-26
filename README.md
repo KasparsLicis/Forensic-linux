@@ -1,4 +1,4 @@
-# Linux basic configuration information collector script
+# Linux basic configuration information collector
 Script will collect and store basic Linux configuration information.
-Script msut be run as root.
+Script must be run as root.
 To run the script use command "source ./run.sh"
